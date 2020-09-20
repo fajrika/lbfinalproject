@@ -12,12 +12,7 @@
     <link href="/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
     <link href="/gentelella/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
-    @yield('css')
-    <style>
-        .paginate_button.page-item.disabled>a{
-            color: white
-        }
-    </style>
+    @stack('css')
     <link href="/gentelella/build/css/custom.min.css" rel="stylesheet">
 </head>
 
@@ -134,7 +129,8 @@
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                     id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="/gentelella/images/icon.svg" alt="">John Doe
+                                    <img src="/gentelella/images/icon.svg" alt="">
+                                    {{ session('auth.name') }}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right"
                                     aria-labelledby="navbarDropdown">
@@ -147,9 +143,6 @@
                     </nav>
                 </div>
             </div>
-            <!-- /top navigation -->
-
-            <!-- page content -->
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
@@ -169,12 +162,10 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <footer>
                 <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    Gentelella - Bootstrap Admin Template by Colorlib - Modified 1.0
                 </div>
                 <div class="clearfix"></div>
             </footer>
@@ -185,9 +176,8 @@
     <script src="/gentelella/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/gentelella/vendors/nprogress/nprogress.js"></script>
     <script src="/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    @yield('js')
+    @stack('js')
     <script src="/gentelella/build/js/custom.min.js"></script>
-    @yield('script')
 </body>
 
 </html>

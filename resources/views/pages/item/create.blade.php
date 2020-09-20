@@ -3,6 +3,7 @@
 @section('header', 'Item')
 @section('title', 'Add')
 @section('subtitle', '')
+
 @section('content')
     <a class="btn btn-success" style="float: right" href='{{ route('item.index')}}'>Back</a>
     <x-form action="{{route('item.store')}}" method="POST">

@@ -3,9 +3,9 @@
 @section('header', 'Item Flow')
 @section('title', 'Add')
 @section('subtitle', '')
-@section('css')
+@push('css')
     <link href="/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-@endsection
+@endpush
 
 @section('content')
     <a class="btn btn-success" style="float: right" href='{{ route('itemFlow.index')}}'>Back</a>
@@ -17,12 +17,11 @@
         <x-input type="text-area" field="description" label="Description" placeholder="Input Description" attr="required"/>
     </x-form>
 @endsection
-@section('js')
+
+@push('js')
     <script src="/gentelella/vendors/select2/dist/js/select2.min.js"></script>
-@endsection
-@section('script')
-<script>
-    $("#item_id").select2({placeholder: "Pilih Item",});
-</script>
-@endsection
+    <script>
+        $("#item_id").select2({placeholder: "Pilih Item",});
+    </script>
+@endpush
 

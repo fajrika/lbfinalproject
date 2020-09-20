@@ -15,7 +15,7 @@
         @else
             <input 
                 type="{{ $type }}" 
-                class="form-control" 
+                class="form-control @error($field) is-invalid @enderror" 
                 id="{{ $field }}" 
                 name="{{ $field }}"
                 placeholder="{{ $placeholder ?? '' }}" 
@@ -25,6 +25,7 @@
                     value="{{ old($field) }}" 
                 @endisset 
                 {{$attr??""}}/>
+            {{-- @error($field)<div class="invalid-feedback">{{$message}}</div>@enderror --}}
 
         @endif
     </div>

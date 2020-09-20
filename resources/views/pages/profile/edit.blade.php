@@ -3,9 +3,9 @@
 @section('header', 'Profile')
 @section('title', 'Datamu')
 @section('subtitle', '')
-@section('css')
+@push('css')
     <link href="/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-@endsection
+@endpush
 @section('content')
     <x-form action="{{route('profile.update',session('auth.id'))}}" method="PUT">
         <x-input field="name" label="Name" type="text" placeholder="{{$user->name}}" value="{{$user->name}}"/>
@@ -14,12 +14,10 @@
         <x-input field="role" label="Role" type="select" dataSelect='[{"view":"Admin","value":0},{"view":"Warehouse","value":1}]'/>
     </x-form>
 @endsection
-@section('js')
+@push('js')
     <script src="/gentelella/vendors/select2/dist/js/select2.min.js"></script>
-@endsection
-@section('script')
-<script>
-    $("#role").select2({placeholder: "Pilih Role",});
-    $('#role').val({{$user->role}}).trigger('change');
-</script>
-@endsection
+    <script>
+        $("#role").select2({placeholder: "Pilih Role",});
+        $('#role').val({{$user->role}}).trigger('change');
+    </script>
+@endpush
