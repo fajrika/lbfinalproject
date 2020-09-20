@@ -1,52 +1,14 @@
 {
-  "_from": "gentelella",
-  "_id": "gentelella@1.4.0",
-  "_inBundle": false,
-  "_integrity": "sha512-lp54+y6bwSLHF6KMstW2jD6oqV68vLMnFqMqATRp5a/8Tp52NYly7Q+5FZIMaNKATrb3EKx+BN/bKpaZ4BYLEw==",
-  "_location": "/gentelella",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "gentelella",
-    "name": "gentelella",
-    "escapedName": "gentelella",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/gentelella/-/gentelella-1.4.0.tgz",
-  "_shasum": "b3d15fd9c40c6ea47dc7f36290c8f89aee95efc5",
-  "_spec": "gentelella",
-  "_where": "/Applications/MAMP/htdocs/kartika",
-  "author": {
-    "name": "Aigars Silkalns"
-  },
-  "bugs": {
-    "url": "https://github.com/puikinsh/gentelella/issues"
-  },
-  "bundleDependencies": false,
-  "contributors": [
-    {
-      "name": "Christian Esperar"
-    }
-  ],
-  "deprecated": false,
+  "name": "gentelella",
+  "version": "2.0-beta2",
   "description": "Gentelella Admin is a free to use Bootstrap admin template",
-  "devDependencies": {
-    "browser-sync": "^2.12.10",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^2.0.6",
-    "gulp-uglify": "^1.5.3"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/puikinsh/gentelella#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puikinsh/gentelella.git"
+  },
   "keywords": [
     "css",
     "js",
@@ -58,15 +20,23 @@
     "backend",
     "responsive"
   ],
+  "author": "Aigars Silkalns",
+  "contributors": [
+    "Christian Esperar"
+  ],
   "license": "MIT",
   "main": "build/js/custom.min.js",
-  "name": "gentelella",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/puikinsh/gentelella.git"
+  "bugs": {
+    "url": "https://github.com/puikinsh/gentelella/issues"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.4.0"
+  "homepage": "https://github.com/puikinsh/gentelella#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-ruby-sass": "^4.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
 }

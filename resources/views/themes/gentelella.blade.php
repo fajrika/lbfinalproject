@@ -6,12 +6,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gentelella Alela! | </title>
+    <link rel="icon" href="/gentelella/production/images/favicon.ico" type="image/ico" />
+    <title>PT. Jaya Sakti Beton</title>
     <link href="/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <link href="/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     @yield('css')
+    <style>
+        .paginate_button.page-item.disabled>a{
+            color: white
+        }
+    </style>
     <link href="/gentelella/build/css/custom.min.css" rel="stylesheet">
 </head>
 
@@ -21,13 +27,19 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><span>PT. Jaya Sakti Beton</span></a>
+                        <a href="index.html" class="site_title">
+                            <i class="fa fa-paw"></i> 
+                            <span>
+                                PT. Jaya Sakti Beton
+                            </span>
+                        </a>
                     </div>
+
                     <div class="clearfix"></div>
+
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1024px-Google_Contacts_icon.svg.png"
-                                alt="..." class="img-circle profile_img">
+                            <img src="/gentelella/images/icon.svg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>{{ session('auth.name') }}</span>
@@ -39,50 +51,114 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                @if(session('auth.role') == 0)
-                                <li><a href="{{route('userManagement.index')}}"><i class="fa fa-home"></i> User Management </span></a></li>
-                                @else
-                                <li><a href="{{route('item.index')}}"><i class="fa fa-home"></i> Item </span></a></li>
-                                <li><a href="{{route('itemFlow.index')}}"><i class="fa fa-home"></i> Item Flow </span></a></li>
-                                <li><a href="index.html"><i class="fa fa-home"></i> Report Item Flow </span></a></li>
-                                @endif
+                                @if(session('auth.role') == 0) {{-- Admin --}}
+                                <li>
+                                    <a href="{{route('userManagement.index')}}">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                        User Management
+                                    </a>
+                                </li>
+                                @else {{-- Warehouse --}}
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i> 
+                                        Customer
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa  fa-user-secret"></i> 
+                                        Supplier
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('item.index')}}">
+                                        <i class="fa fa-server"></i> 
+                                        Item
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-sitemap"></i> 
+                                        Flow Item 
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a href="{{route('itemFlow.index')}}">
+                                                Incoming Item (Buy)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('itemFlow.index')}}">
+                                                Outcoming Item (Sell)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> 
+                                <li>
+                                    <a href="#">
+                                        <i class="fa  fa-newspaper-o"></i> 
+                                        Report Item Flow
+                                    </a>
+                                </li>
+                                @endif    
                             </ul>
                         </div>
+
+                    </div>
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="top_nav">
                 <div class="nav_menu">
-                    <nav>
-                        <div class="nav toggle">
-                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                        </div>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1024px-Google_Contacts_icon.svg.png"
-                                        alt="">{{ session('auth.name') }}
-                                    <span class=" fa fa-angle-down"></span>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <nav class="nav navbar-nav">
+                        <ul class=" navbar-right">
+                            <li class="nav-item dropdown open" style="padding-left: 15px;">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                                    id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="/gentelella/images/icon.svg" alt="">John Doe
                                 </a>
-                                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="/profile/{{ session('auth.id') }}/edit"> Profile</a></li>
-                                    <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                                </ul>
+                                <div class="dropdown-menu dropdown-usermenu pull-right"
+                                    aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="/profile/{{ session('auth.id') }}/edit"> Profile</a>
+                                    <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </div>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
                         <h3> @yield('header','header') </h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel tile">
+                <div class="row col-md-12">
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
                             <div class="x_title">
                                 <h2> @yield('title','title')<small> @yield('subtitle','subtitle')</small></h2>
                                 <div class="clearfix"></div>
@@ -93,18 +169,20 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <footer>
                 <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a> - <a
-                        href="https://github.com/fajrika">Fajrika</a>
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
                 </div>
                 <div class="clearfix"></div>
             </footer>
         </div>
     </div>
+
     <script src="/gentelella/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/gentelella/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/gentelella/vendors/nprogress/nprogress.js"></script>
     <script src="/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     @yield('js')

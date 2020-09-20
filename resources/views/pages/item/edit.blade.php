@@ -21,6 +21,5 @@
 @section('script')
 <script>
     $("#role").select2({placeholder: "Pilih Role",});
-    $('#role').val({{$item->role}}).trigger('change');
 </script>
 @endsection

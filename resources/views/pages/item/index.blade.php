@@ -4,10 +4,10 @@
 @section('title', 'List')
 @section('subtitle', '')
 
+@section('css')
+    <x-table.dt-css/>
+@endsection
 @section('content')
-    @section('css')
-        <x-table.dt-css/>
-    @endsection
     <x-table thead="Code;Name;Type;Price;Created by;Edit"/>
 @endsection
 @section('script')
