@@ -23,7 +23,7 @@ class CreateItemsTable extends Migration
             $table->foreignId('created_by');
             $table->timestamps();
             $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

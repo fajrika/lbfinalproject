@@ -4,7 +4,7 @@
 @section('title', 'Add')
 @section('subtitle', '')
 @push('css')
-    <link href="/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="/asset/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
 @endpush
 @push('content')
     <a class="btn btn-success" style="float: right" href='{{ route('userManagement.index')}}'>Back</a>
@@ -16,7 +16,7 @@
     </x-form>
 @endpush
 @push('js')
-    <script src="/gentelella/vendors/select2/dist/js/select2.min.js"></script>
+    <script src="/asset/gentelella/vendors/select2/dist/js/select2.min.js"></script>
     <script>
         $("#role").select2({placeholder: "Pilih Role",});
     </script>

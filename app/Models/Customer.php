@@ -12,7 +12,8 @@ class Customer extends Model
     public function created_by(){
         return $this->belongsTo(User::class,'created_by');
     }
-    public function user(){
-        return $this->belongsTo(User::class,'abc','def');
+
+    public function outcoming_item(){
+        return $this->hasMany('App\Models\Outcoming_item');
     }
 }

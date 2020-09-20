@@ -61,9 +61,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{route('supplier.index')}}">
                                         <i class="fa  fa-user-secret"></i> 
                                         Supplier
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('category.index')}}">
+                                        <i class="fa fa-server"></i> 
+                                        Category
                                     </a>
                                 </li>
                                 <li>
@@ -80,23 +86,23 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li>
-                                            <a href="{{''}}">
+                                            <a href="{{route('incomingItem.index')}}">
                                                 Incoming Item (Buy)
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{''}}">
+                                            <a href="{{route('outcomingItem.index')}}">
                                                 Outcoming Item (Sell)
                                             </a>
                                         </li>
                                     </ul>
                                 </li> 
-                                <li>
+                                {{-- <li>
                                     <a href="#">
                                         <i class="fa  fa-newspaper-o"></i> 
                                         Report Item Flow
                                     </a>
-                                </li>
+                                </li> --}}
                                 @endif    
                             </ul>
                         </div>

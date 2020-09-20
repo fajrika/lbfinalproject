@@ -9,12 +9,10 @@
 @endpush
 
 @push('content')
-    <a class="btn btn-success" style="float: right" href='{{ route('item.index')}}'>Back</a>
-    <x-form action="{{route('item.update',$item->id)}}" method="PUT">
-        <x-input field="code" label="Code" type="text" placeholder="{{$item->code}}" value="{{$item->code}}"/>
-        <x-input field="name" label="Name" type="text" placeholder="{{$item->name}}" value="{{$item->name}}"/>
-        <x-input field="type" label="Type" type="text" placeholder="{{$item->type}}" value="{{$item->type}}"/>
-        <x-input field="price" label="Price" type="text" placeholder="{{$item->price}}" value="{{$item->price}}"/>
+    <a class="btn btn-success" style="float: right" href='{{ route('customer.index')}}'>Back</a>
+    <x-form action="{{route('customer.update',$customer->id)}}" method="PUT">
+        <x-input field="name" label="Name" type="text" placeholder="{{$customer->name}}" value="{{$customer->name}}"/>
+        <x-input field="description" label="Description" type="text" placeholder="{{$customer->description}}" value="{{$customer->description}}"/>
     </x-form>
 @endpush
 

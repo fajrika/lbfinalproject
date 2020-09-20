@@ -9,7 +9,7 @@
     <x-form action="{{route('item.store')}}" method="POST">
         <x-input field="code" label="Code" type="text" placeholder="Input Code"/>
         <x-input field="name" label="Name" type="text" placeholder="Input Name"/>
-        <x-input field="type" label="Type" type="text" placeholder="Input Type"/>
+        <x-input field="category_id" label="Category" type="select" placeholder="Input Name" dataSelect='{!! json_encode($category) !!}' />
         <x-input field="price" label="Price" type="number" placeholder="Input Price"/>
     </x-form>
 @endpush

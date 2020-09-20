@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Item;
-use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 
-class ItemAPI extends Controller
+class CategoryAPI extends Controller
 {
     public function __invoke()
     {
         return
             datatables()
-            ->of(Item::with('category','created_by')->get()->toArray())
+            ->of(Category::with('created_by')->get()->toArray())
             ->addColumn('DT_RowId', '{{$id}}')
             ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);

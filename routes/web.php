@@ -21,6 +21,10 @@ Route::namespace('App\Http\Controllers')->group(function(){
     Route::middleware(['authCustom:Warehouse'])->group(function () {
         Route::resource('/item', 'ItemController');
         Route::resource('/customer', 'CustomerController');
+        Route::resource('/supplier', 'SupplierController');
+        Route::resource('/category', 'CategoryController');
+        Route::resource('/incomingItem', 'IncomingItemController');
+        Route::resource('/outcomingItem', 'OutcomingItemController');
         // Route::resource('/itemFlow', 'ItemFlowController');
     });
 

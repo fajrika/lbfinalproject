@@ -6,7 +6,7 @@
                 <option></option>
                 @isset($dataSelect)
                     @foreach (json_decode($dataSelect) as $dataSelect)
-                        <option value="{{ $dataSelect->value }}">
+                        <option value="{{ $dataSelect->value }}" {{$dataSelect->value == (isset($value)?$value:'') ? 'selected' : ''}}>
                             {{ $dataSelect->view }}
                         </option>
                     @endforeach
