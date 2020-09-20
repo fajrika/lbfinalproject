@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\Http\Controllers')->group(function(){
-    Route::get('userManagement','api\UserManagementAPI');
+    Route::get('userManagement','api\UserManagementAPI@__invoke');
     Route::get('item','api\ItemAPI');
     Route::get('customer','api\CustomerAPI');
     Route::get('supplier','api\SupplierAPI');
