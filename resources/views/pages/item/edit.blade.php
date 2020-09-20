@@ -8,7 +8,7 @@
     <link href="/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
 @endpush
 
-@section('content')
+@push('content')
     <a class="btn btn-success" style="float: right" href='{{ route('item.index')}}'>Back</a>
     <x-form action="{{route('item.update',$item->id)}}" method="PUT">
         <x-input field="code" label="Code" type="text" placeholder="{{$item->code}}" value="{{$item->code}}"/>
@@ -16,7 +16,7 @@
         <x-input field="type" label="Type" type="text" placeholder="{{$item->type}}" value="{{$item->type}}"/>
         <x-input field="price" label="Price" type="text" placeholder="{{$item->price}}" value="{{$item->price}}"/>
     </x-form>
-@endsection
+@endpush
 
 @push('js')
     <script src="/gentelella/vendors/select2/dist/js/select2.min.js"></script>

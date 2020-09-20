@@ -157,7 +157,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                @yield('content','content')
+                                @stack('content','content')
                             </div>
                         </div>
                     </div>

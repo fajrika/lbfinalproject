@@ -6,9 +6,9 @@
 @push('css')
     <x-table.dt-css/>
 @endpush
-@section('content')
+@push('content')
     <x-table thead="Name;Username;Role;Edit"/>
-@endsection
+@endpush
 @push('js')
 <x-table.dt-js data="name;username;role;edit" button="add;copy;excel;csv;pdf" url="/api/userManagement" />
 @endpush
