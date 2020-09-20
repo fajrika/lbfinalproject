@@ -14,7 +14,7 @@ class Auth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role = null)
     {
         if (session('auth.username')) {
             if (Route::currentRouteName() == 'login')
