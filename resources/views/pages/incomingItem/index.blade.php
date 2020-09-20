@@ -14,4 +14,4 @@
 
 @push('js')
     <x-table.dt-js data="supplier.name;description;created_by.name" button="add;copy;excel;csv;pdf" url="/api/incomingItem" />
-@endpush
+@endpush 
