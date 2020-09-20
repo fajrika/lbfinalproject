@@ -20,7 +20,8 @@ Route::namespace('App\Http\Controllers')->group(function(){
     
     Route::middleware(['authCustom:Warehouse'])->group(function () {
         Route::resource('/item', 'ItemController');
-        Route::resource('/itemFlow', 'ItemFlowController');
+        Route::resource('/customer', 'CustomerController');
+        // Route::resource('/itemFlow', 'ItemFlowController');
     });
 
 });

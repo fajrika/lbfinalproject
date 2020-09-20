@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('username');
             $table->string('password');
-            $table->integer('role')->comment("0:admin,1:warehouse");
+            $table->tinyInteger('role')->comment("0:admin,1:warehouse");
             $table->foreignId('created_by')->nullable();
             $table->timestamps();
             $table->foreign('created_by')->references('id')->on('users');

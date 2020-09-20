@@ -20,8 +20,10 @@ class CreateItemsView extends Migration
                     items.id,
                     items.code,
                     items.name,
-                    items.type,
+                    items.category_id,
+                    categories.name as categories_name,
                     items.price,
+                    items.stock,
                     case 
                             WHEN items.created_by = 0 THEN 'System'
                             WHEN items.created_by is null THEN 'System'
@@ -30,8 +32,10 @@ class CreateItemsView extends Migration
                     items.created_at,
                     items.updated_at
                 FROM items
+                JOIN categories
+                    ON categories.id = items.category_id
                 LEFT JOIN users
-                        ON users.id = items.created_by"
+                    ON users.id = items.created_by"
         );
     }
 

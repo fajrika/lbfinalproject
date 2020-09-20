@@ -21,7 +21,8 @@ class AuthController extends Controller
                     'auth.id' => $user->id,
                     'auth.username' => $user->username,
                     'auth.name' => $user->name,
-                    'auth.role' => $user->role,
+                    'auth.role' => $user->role, 
+                    'auth.roleName' => $user->role === 0 ? 'Admin' : 'Warehouse'
                 ]);
                 return redirect('/dashboard');
             }

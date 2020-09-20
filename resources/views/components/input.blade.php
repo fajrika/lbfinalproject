@@ -2,7 +2,7 @@
     <label class="col-form-label col-md-3 col-sm-3 label-align" for="{{ $field }}">{{ $label }}</label>
     <div class="col-md-6 col-sm-6 col-xs-12">
         @if ($type == 'select')
-            <select name="{{ $field }}" class="form-control" id="{{ $field }}" {{$attr??""}}>
+            <select name="{{ $field }}" class="form-control @error($field) is-invalid @enderror" id="{{ $field }}" {{$attr??""}}>
                 <option></option>
                 @isset($dataSelect)
                     @foreach (json_decode($dataSelect) as $dataSelect)
@@ -12,6 +12,16 @@
                     @endforeach
                 @endisset
             </select>
+            @error($field)<div class="invalid-feedback">{{$message}}</div>@enderror
+        @elseif ($type == 'textarea')
+            <textarea 
+                type="{{ $type }}" 
+                class="form-control @error($field) is-invalid @enderror" 
+                id="{{ $field }}" 
+                name="{{ $field }}"
+                placeholder="{{ $placeholder ?? '' }}"  
+                {{$attr??""}}>@isset($value){{ old($field) ?? $value }}@else{{ old($field) }}@endisset</textarea>
+            @error($field)<div class="invalid-feedback">{{$message}}</div>@enderror
         @else
             <input 
                 type="{{ $type }}" 

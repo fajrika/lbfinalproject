@@ -55,7 +55,7 @@
                                 </li>
                                 @else {{-- Warehouse --}}
                                 <li>
-                                    <a href="#">
+                                    <a href="{{route('customer.index')}}">
                                         <i class="fa fa-user"></i> 
                                         Customer
                                     </a>
@@ -80,12 +80,12 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li>
-                                            <a href="{{route('itemFlow.index')}}">
+                                            <a href="{{''}}">
                                                 Incoming Item (Buy)
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{route('itemFlow.index')}}">
+                                            <a href="{{''}}">
                                                 Outcoming Item (Sell)
                                             </a>
                                         </li>

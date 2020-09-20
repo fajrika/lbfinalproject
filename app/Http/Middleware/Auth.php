@@ -15,12 +15,14 @@ class Auth
      * @return mixed
      */
     public function handle($request, Closure $next, $role = null)
-    {
+    {        
         if (session('auth.username')) {
-            if (Route::currentRouteName() == 'login')
-                return redirect('/dashboard');
-            return $next($request);
-        } elseif (Route::currentRouteName() == 'login') {
+            // if (Route::currentRouteName() == 'login')
+            //     return redirect('/dashboard');
+            if(session('auth.roleName') == $role || $role == null)
+                return $next($request);
+        }
+         elseif (Route::currentRouteName() == 'login') {
             return $next($request);
         }
         return redirect('/login');
