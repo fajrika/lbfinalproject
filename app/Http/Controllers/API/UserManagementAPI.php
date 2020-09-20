@@ -9,11 +9,11 @@ class UserManagementAPI extends Controller
 {
     public function __invoke()
     {
-        return
-            datatables()
-            ->of(DB::table('v_users'))
-            ->addColumn('DT_RowId', '{{$id}}')
-            ->addColumn('button_edit', "<Button>Edit</Button>")
-            ->make(true);
+        // return
+        //     datatables()
+        //     ->of(DB::table('v_users'))
+        //     ->addColumn('DT_RowId', '{{$id}}')
+        //     ->addColumn('button_edit', "<Button>Edit</Button>")
+        //     ->make(true);
     }
 }
