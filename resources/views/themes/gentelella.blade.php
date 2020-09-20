@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/gentelella/production/images/favicon.ico" type="image/ico" />
+    <link rel="icon" href="/asset/gentelella/production/images/favicon.ico" type="image/ico" />
     <title>PT. Jaya Sakti Beton</title>
-    <link href="/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <link href="/gentelella/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <link href="/asset/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/asset/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/asset/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="/asset/gentelella/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     @stack('css')
-    <link href="/gentelella/build/css/custom.min.css" rel="stylesheet">
+    <link href="/asset/gentelella/build/css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -34,7 +34,7 @@
 
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="/gentelella/images/icon.svg" alt="..." class="img-circle profile_img">
+                            <img src="/asset/gentelella/images/icon.svg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>{{ session('auth.name') }}</span>
@@ -129,7 +129,7 @@
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                     id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="/gentelella/images/icon.svg" alt="">
+                                    <img src="/asset/gentelella/images/icon.svg" alt="">
                                     {{ session('auth.name') }}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right"
@@ -172,12 +172,12 @@
         </div>
     </div>
 
-    <script src="/gentelella/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="/gentelella/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/gentelella/vendors/nprogress/nprogress.js"></script>
-    <script src="/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="/asset/gentelella/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/asset/gentelella/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/asset/gentelella/vendors/nprogress/nprogress.js"></script>
+    <script src="/asset/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     @stack('js')
-    <script src="/gentelella/build/js/custom.min.js"></script>
+    <script src="/asset/gentelella/build/js/custom.min.js"></script>
 </body>
 
 </html>
