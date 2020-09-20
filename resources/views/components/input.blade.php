@@ -25,7 +25,7 @@
                     value="{{ old($field) }}" 
                 @endisset 
                 {{$attr??""}}/>
-            {{-- @error($field)<div class="invalid-feedback">{{$message}}</div>@enderror --}}
+            @error($field)<div class="invalid-feedback">{{$message}}</div>@enderror
 
         @endif
     </div>

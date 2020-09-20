@@ -41,24 +41,36 @@
                 {
                     "targets": -2,
                     "data": null,
-                    "render": (data, type, full) => ('<a class="btn btn-primary" href="{{ URL::current() }}/'+full.id+'/edit">Edit</a>')
+                    "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/edit">Edit</a>')
                 },
                 {
                     "targets": -1,
                     "data": null,
-                    "render": (data, type, full) => ('<a class="btn btn-danger" href="{{ URL::current() }}'+full.id+'/delete">Delete</a>')
+                    "render": (data, type, full) => (
+                    '<form class="deleteRow" action="{{ URL::current() }}/'+full.id+'" method="post" onsubmit="return confirm(\'Do you really want to delete data?\');">'+
+                        '@csrf'+
+                        '@method("delete")'+
+                        '<button type="submit" class="btn btn-danger btn-sm col-md-12">Delete</button>'+
+                    '</form>'
+                    )
                 }
                 @elseif(isset($edit))
                 {
                     "targets": -1,
                     "data": null,
-                    "render": (data, type, full) => ('<a class="btn btn-primary" href="{{ URL::current() }}/'+full.id+'/edit">Edit</a>')
+                    "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/edit">Edit</a>')
                 }
                 @elseif(isset($delete))
                 {
                     "targets": -1,
                     "data": null,
-                    "render": (data, type, full) => ('<a class="btn btn-danger" href="{{ URL::current() }}'+full.id+'/delete">Delete</a>')
+                    "render": (data, type, full) => (
+                    '<form class="deleteRow" action="{{ URL::current() }}/'+full.id+'" method="post" onsubmit="return confirm(\'Do you really want to delete data?\');">'+
+                        '@csrf'+
+                        '@method("delete")'+
+                        '<button type="submit" class="btn btn-danger btn-sm col-md-12">Delete</button>'+
+                    '</form>'
+                    )                
                 }
                 @endif
                 
@@ -86,6 +98,6 @@
                 });
             }
         });
-    });
 
+    });
 </script>
