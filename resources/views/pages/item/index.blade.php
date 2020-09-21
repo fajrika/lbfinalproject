@@ -9,9 +9,9 @@
 @endpush
 
 @push('content')
-    <x-table thead="Code;Name;Category;Price;Created by;Edit;Delete"/>
+    <x-table thead="Code;Name;Category;Price;Stock;Created by;Edit;Delete"/>
 @endpush
 
 @push('js')
-    <x-table.dt-js data="code;name;category.name;price;created_by.name;edit;delete" button="add;copy;excel;csv;pdf" url="/api/item" />
+    <x-table.dt-js data="code;name;category.name;price;stock;created_by.name;edit;delete" button="add;copy;excel;csv;pdf" url="/api/item" />
 @endpush

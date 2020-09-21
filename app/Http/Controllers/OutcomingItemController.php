@@ -27,7 +27,8 @@ class OutcomingItemController extends Controller
         $outcomingItem->customer_id = $request->customer_id;
         $outcomingItem->process_date = $request->process_date;
         $outcomingItem->ppn = $request->ppnrp;
-        $outcomingItem->price = $request->finalTotal;
+        $outcomingItem->grand_total = $request->grandTotal;
+        $outcomingItem->final_total = $request->finalTotal;
         $outcomingItem->description = $request->description;
         $outcomingItem->created_by = session('auth.id');
         $outcomingItem->save();

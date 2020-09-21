@@ -1,6 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::get('/test',function(){
+    dump(\App\Models\Supplier::query());
+    dump(\App\Models\Supplier::all()->toArray());
+    dump(datatables()->of(
+            \App\Models\Supplier::query()
+        )->toJson());
+    dump(datatables()->of(\App\Models\Supplier::query())->make(true));
+
+    dump(\App\Models\Item::leftJoin('categories','categories.id','=','items.category_id'));
+    dump(
+        datatables()->of(
+            \App\Models\Item::leftJoin('categories','categories.id','=','items.category_id')
+        )->toJson()
+    );
+    
+});
+
 
 Route::namespace('App\Http\Controllers')->group(function(){
     Route::get('/',function(){return redirect()->route('login');});

@@ -1,20 +1,22 @@
 <?php
     $columns = explode(";",$data);
-    if(in_array("edit",$columns)) $edit = 1;
-    if(in_array("delete",$columns)) $delete = 1;
+    in_array("edit",$columns) ? $edit = true : $edit = false;
+    in_array("delete",$columns) ? $delete = true : $delete = false;
+    in_array("show",$columns) ? $show = true : $show = false;
 ?>
 
 <script src="/asset/datatables/pdfmake.min.js"></script>
 <script src="/asset/datatables/vfs.min.js"></script>
 <script src="/asset/datatables/main.min.js"></script>
 <script>
-    $(document).ready(()=> {
-        $('.table-list tfoot th').each(()=> {
+    $(document).ready(function(){
+        $('.table-list tfoot th').each(function(){
             var title = $(this).text();
             $(this).html('<input type="text" placeholder="Search ' + title + '" />');
         });
         $('.table-list').DataTable({
-            dom: 'Bfrtip',
+            dom: 'Blfrtip',
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
             buttons: [
                 @foreach(explode(";",$button) as $tmp)
                     @if($tmp == 'add')
@@ -37,14 +39,23 @@
             "serverSide": true,
             "ajax": { "url": "{{ $url }}" },
             "columnDefs": [
-                @if(isset($edit) && isset($delete))
+                @if($show)
                 {
-                    "targets": -2,
+                    "targets": {{-1*($show+$edit+$delete)}},
+                    "data": null,
+                    "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/edit">Show</a>')
+                },
+                @endif
+                @if($edit)
+                {
+                    "targets": {{-1*($edit+$delete)}},
                     "data": null,
                     "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/edit">Edit</a>')
                 },
+                @endif
+                @if($delete)
                 {
-                    "targets": -1,
+                    "targets": {{-1*($delete)}},
                     "data": null,
                     "render": (data, type, full) => (
                     '<form class="deleteRow" action="{{ URL::current() }}/'+full.id+'" method="post" onsubmit="return confirm(\'Do you really want to delete data?\');">'+
@@ -53,24 +64,6 @@
                         '<button type="submit" class="btn btn-danger btn-sm col-md-12">Delete</button>'+
                     '</form>'
                     )
-                }
-                @elseif(isset($edit))
-                {
-                    "targets": -1,
-                    "data": null,
-                    "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/edit">Edit</a>')
-                }
-                @elseif(isset($delete))
-                {
-                    "targets": -1,
-                    "data": null,
-                    "render": (data, type, full) => (
-                    '<form class="deleteRow" action="{{ URL::current() }}/'+full.id+'" method="post" onsubmit="return confirm(\'Do you really want to delete data?\');">'+
-                        '@csrf'+
-                        '@method("delete")'+
-                        '<button type="submit" class="btn btn-danger btn-sm col-md-12">Delete</button>'+
-                    '</form>'
-                    )                
                 }
                 @endif
                 
@@ -91,7 +84,7 @@
                 var api = this.api();
                 api.columns().every(function() {
                     var that = this;
-                    $('input', this.footer()).on('keyup change', () => {
+                    $('input', this.footer()).on('keyup change', function(){
                         if (that.search() !== this.value)
                             that.search(this.value).draw();
                     });

@@ -11,7 +11,7 @@ class CustomerAPI extends Controller
     {
         return
             datatables()
-            ->of(Customer::with('created_by')->get()->toArray())
+            ->of(Customer::with('created_by'))
             ->addColumn('DT_RowId', '{{$id}}')
             ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);

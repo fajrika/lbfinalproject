@@ -135,10 +135,6 @@
             
             calculate();
         })
-        // $("body").on("change",".quantity",function(e){
-
-        // });
         $("select").select2({placeholder: "Pilih"});
-        // $("#ppn").select2({placeholder: "",});
     </script>
 @endpush

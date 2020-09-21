@@ -11,7 +11,7 @@ class CategoryAPI extends Controller
     {
         return
             datatables()
-            ->of(Category::with('created_by')->get()->toArray())
+            ->of(Category::with('created_by'))
             ->addColumn('DT_RowId', '{{$id}}')
             ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);

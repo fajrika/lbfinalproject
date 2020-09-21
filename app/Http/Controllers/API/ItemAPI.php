@@ -12,7 +12,7 @@ class ItemAPI extends Controller
     {
         return
             datatables()
-            ->of(Item::with('category','created_by')->get()->toArray())
+            ->of(Item::with('category','created_by'))
             ->addColumn('DT_RowId', '{{$id}}')
             ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);

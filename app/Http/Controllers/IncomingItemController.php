@@ -27,14 +27,14 @@ class IncomingItemController extends Controller
         $incomingItem = new IncomingItem;
         $incomingItem->supplier_id = $request->supplier_id;
         $incomingItem->process_date = $request->process_date;
-        $incomingItem->ppn = $request->ppn;
-        $incomingItem->price = $request->finalTotal;
+        $incomingItem->ppn = $request->ppnrp;
+        $incomingItem->grand_total = $request->grandTotal;
+        $incomingItem->final_total = $request->finalTotal;
         $incomingItem->description = $request->description;
         $incomingItem->created_by = session('auth.id');
         $incomingItem->save();
 
         foreach ($request->item_id as $key => $value) {
-            # code...
             $incomingItemDetail = new IncomingItemDetail;
             $incomingItemDetail->incoming_item_id = $incomingItem->id;
             $incomingItemDetail->item_id = $request->item_id[$key];

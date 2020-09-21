@@ -11,7 +11,7 @@ class OutcomingItemAPI extends Controller
     {
         return
             datatables()
-            ->of(OutcomingItem::with('created_by','customer')->get()->toArray())
+            ->of(OutcomingItem::with('created_by','customer'))
             ->addColumn('DT_RowId', '{{$id}}')
             ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);

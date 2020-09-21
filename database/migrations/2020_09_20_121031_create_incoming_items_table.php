@@ -18,7 +18,8 @@ class CreateIncomingItemsTable extends Migration
             $table->foreignId('supplier_id');
             $table->dateTime('process_date');
             $table->bigInteger('ppn');
-            $table->bigInteger('price');
+            $table->bigInteger('grand_total');
+            $table->bigInteger('final_total');
             $table->string('description');
             $table->foreignId('created_by');
             $table->timestamps();

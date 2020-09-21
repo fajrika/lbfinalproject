@@ -12,7 +12,7 @@ class SupplierAPI extends Controller
     {
         return
             datatables()
-            ->of(Supplier::with('created_by')->get()->toArray())
+            ->of(Supplier::with('created_by'))
             ->addColumn('DT_RowId', '{{$id}}')
             ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);
