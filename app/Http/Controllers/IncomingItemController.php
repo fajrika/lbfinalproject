@@ -43,6 +43,9 @@ class IncomingItemController extends Controller
             $incomingItemDetail->total = $request->total[$key];
             $incomingItemDetail->description = $request->descriptionEl[$key];
             $incomingItemDetail->save();
+            $stock = (int)Item::find($incomingItemDetail->item_id)->stock;
+            $stock += (int)$incomingItemDetail->quantity;
+            Item::find($incomingItemDetail->item_id)->update(['stock' => $stock]);
         }
         return back()->with('success','Sukses tambah data');
     }
