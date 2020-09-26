@@ -14,4 +14,7 @@ class OutcomingItemDetail extends Model
     public function outcoming(){
         return $this->belongsTo('App\Models\OutcomingItem');
     }
+    public function item(){
+        return $this->belongsTo('App\Models\Item');
+    }
 }

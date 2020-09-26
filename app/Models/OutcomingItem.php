@@ -14,7 +14,7 @@ class OutcomingItem extends Model
         return $this->belongsTo('App\Models\Customer');
     }
 
-    public function detail(){
+    public function details(){
         return $this->hasMany('App\Models\OutcomingItemDetail');
     }
 

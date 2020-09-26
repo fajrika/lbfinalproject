@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
-use Illuminate\Support\Facades\DB;
 
 class SupplierAPI extends Controller
 {
@@ -12,9 +11,11 @@ class SupplierAPI extends Controller
     {
         return
             datatables()
-            ->of(Supplier::with('created_by'))
+            ->of(Supplier::with('created_by')->select('suppliers.*'))
+            ->editColumn('created_at', function($el){
+                return $el->created_at->format('Y-m-d H:i:s');
+            })
             ->addColumn('DT_RowId', '{{$id}}')
-            ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);
     }
 }

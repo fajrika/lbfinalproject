@@ -11,9 +11,11 @@ class OutcomingItemAPI extends Controller
     {
         return
             datatables()
-            ->of(OutcomingItem::with('created_by','customer'))
+            ->of(OutcomingItem::with('created_by','customer')->select('outcoming_items.*'))
+            ->editColumn('created_at', function($el){
+                return $el->created_at->format('Y-m-d H:i:s');
+            })
             ->addColumn('DT_RowId', '{{$id}}')
-            ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);
     }
 }

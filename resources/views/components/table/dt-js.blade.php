@@ -16,6 +16,7 @@
         });
         $('.table-list').DataTable({
             dom: 'Blfrtip',
+            order: [[ {{$sort??0}}, "desc" ]],
             lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
             buttons: [
                 @foreach(explode(";",$button) as $tmp)
@@ -43,7 +44,7 @@
                 {
                     "targets": {{-1*($show+$edit+$delete)}},
                     "data": null,
-                    "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/edit">Show</a>')
+                    "render": (data, type, full) => ('<a class="btn btn-primary btn-sm col-md-12" href="{{ URL::current() }}/'+full.id+'/">Show</a>')
                 },
                 @endif
                 @if($edit)
@@ -71,7 +72,7 @@
             "columns": [
                 @foreach($columns as $column)
                 {
-                    @if(!in_array($column,['edit','delete']))
+                    @if(!in_array($column,['edit','delete','show']))
                         "data" : "{{$column}}",
                     @else
                         "data" : "{{$column}}",

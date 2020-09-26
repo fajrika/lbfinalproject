@@ -11,9 +11,11 @@ class CustomerAPI extends Controller
     {
         return
             datatables()
-            ->of(Customer::with('created_by'))
-            ->addColumn('DT_RowId', '{{$id}}')
-            ->addColumn('button_edit', "<Button>Edit</Button>")
+            ->of(Customer::with('created_by')->select('customers.*'))
+            ->editColumn('created_at', function($el){
+                return $el->created_at->format('Y-m-d H:i:s');
+            })
+            ->addColumn('DT_RowId', '{{$id}}')            
             ->make(true);
     }
 }

@@ -20,7 +20,7 @@ class CreateOutcomingItemDetailsTable extends Migration
             $table->bigInteger('price');
             $table->bigInteger('quantity');
             $table->bigInteger('total');
-            $table->string('description');
+            // $table->string('description');
             $table->foreign('outcoming_item_id')->references('id')->on('outcoming_items');
             $table->foreign('item_id')->references('id')->on('items');
         });

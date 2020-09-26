@@ -23,7 +23,6 @@ class IncomingItemController extends Controller
             'process_date' => 'required',
             'ppn' => 'required',
         ]);
-
         $incomingItem = new IncomingItem;
         $incomingItem->supplier_id = $request->supplier_id;
         $incomingItem->process_date = $request->process_date;
@@ -41,7 +40,7 @@ class IncomingItemController extends Controller
             $incomingItemDetail->quantity = $request->quantity[$key];
             $incomingItemDetail->price = $request->priceEl[$key];
             $incomingItemDetail->total = $request->total[$key];
-            $incomingItemDetail->description = $request->descriptionEl[$key];
+            // $incomingItemDetail->description = $request->descriptionEl[$key];
             $incomingItemDetail->save();
             $stock = (int)Item::find($incomingItemDetail->item_id)->stock;
             $stock += (int)$incomingItemDetail->quantity;
@@ -50,6 +49,7 @@ class IncomingItemController extends Controller
         return back()->with('success','Sukses tambah data');
     }
     public function edit(IncomingItem $incomingItem){return view('pages.incomingItem.edit',compact('incomingItem'));}
+    public function show(IncomingItem $incomingItem){return view('pages.incomingItem.show',compact('incomingItem'));}
     public function update(Request $request, IncomingItem $incomingItem)
     {
         $request->validate([
@@ -61,6 +61,8 @@ class IncomingItemController extends Controller
         return back()->with('error','tidak ada data yang di update');
     }
     public function destroy(IncomingItem $incomingItem){
+        // dd($incomingItem->details()->get());
+        $incomingItem->details()->delete();
         $incomingItem->delete();
         return back();
     }

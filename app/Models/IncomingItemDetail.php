@@ -14,5 +14,7 @@ class IncomingItemDetail extends Model
     public function incoming_item(){
         return $this->belongsTo('App\Models\IncomingItem');
     }
-
+    public function item(){
+        return $this->belongsTo('App\Models\Item');
+    }
 }

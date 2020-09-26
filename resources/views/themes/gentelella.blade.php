@@ -19,7 +19,7 @@
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-            <div class="col-md-3 left_col">
+            <div class="col-md-3 left_col d-print-none">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
                         <a href="index.html" class="site_title">
@@ -74,7 +74,7 @@
                                 </li>
                                 <li>
                                     <a href="{{route('item.index')}}">
-                                        <i class="fa fa-server"></i> 
+                                        <i class="fa fa-archive"></i> 
                                         Item
                                     </a>
                                 </li>
@@ -125,7 +125,7 @@
                 </div>
             </div>
 
-            <div class="top_nav">
+            <div class="top_nav d-print-none">
                 <div class="nav_menu">
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
@@ -158,7 +158,7 @@
                 <div class="row col-md-12">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
-                            <div class="x_title">
+                            <div class="x_title d-print-none">
                                 <h2> @yield('title','title')<small> @yield('subtitle','subtitle')</small></h2>
                                 <div class="clearfix"></div>
                             </div>
@@ -169,7 +169,7 @@
                     </div>
                 </div>
             </div>
-            <footer>
+            <footer class="d-print-none">
                 <div class="pull-right">
                     Gentelella - Bootstrap Admin Template by Colorlib - Modified 1.0
                 </div>

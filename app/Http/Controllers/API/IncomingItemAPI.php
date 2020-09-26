@@ -11,9 +11,11 @@ class IncomingItemAPI extends Controller
     {
         return
             datatables()
-            ->of(IncomingItem::with('created_by','supplier'))
+            ->of(IncomingItem::with('created_by','supplier')->select('incoming_items.*'))
+            ->editColumn('created_at', function($el){
+                return $el->created_at->format('Y-m-d H:i:s');
+            })
             ->addColumn('DT_RowId', '{{$id}}')
-            ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);
     }
 }

@@ -1,7 +1,7 @@
 
 <div class="clearfix"></div>
 <form 
-    class="form-horizontal form-label-left" 
+    class="{{isset($class) ? $class : 'form-horizontal form-label-left'}}" 
     action="{{$action}}" 
     method="{{strtolower($method)!='get'?'POST':'GET'}}">
     @csrf
@@ -22,8 +22,8 @@
 
     {{ $slot }}
 
-    <div class="ln_solid"></div>
-    <div class="row">
+    <div class="ln_solid d-print-none"></div>
+    <div class="row d-print-none">
         <div class="col-md-1" style="margin:auto;float:none">
             <button id="send" type="submit" class="btn btn-success">Submit</button>
         </div>

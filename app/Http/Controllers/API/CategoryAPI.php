@@ -11,9 +11,11 @@ class CategoryAPI extends Controller
     {
         return
             datatables()
-            ->of(Category::with('created_by'))
+            ->of(Category::with('created_by')->select('categories.*'))
+            ->editColumn('created_at', function($el){
+                return $el->created_at->format('Y-m-d H:i:s');
+            })
             ->addColumn('DT_RowId', '{{$id}}')
-            ->addColumn('button_edit', "<Button>Edit</Button>")
             ->make(true);
     }
 }
