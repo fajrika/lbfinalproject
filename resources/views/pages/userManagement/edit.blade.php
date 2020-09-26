@@ -4,7 +4,7 @@
 @section('title', 'Edit')
 @section('subtitle', '')
 @push('css')
-    <link href="/gentelella/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <x-select2.css/>
 @endpush
 @push('content')
     <a class="btn btn-success" style="float: right" href='{{ route('userManagement.index')}}'>Back</a>
@@ -16,9 +16,8 @@
     </x-form>
 @endpush
 @push('js')
-    <script src="/gentelella/vendors/select2/dist/js/select2.min.js"></script>
+    <x-select2.js/>
     <script>
-        $("#role").select2({placeholder: "Pilih Role",});
         $('#role').val({{$user->role}}).trigger('change');
     </script>
 @endpush

@@ -11,7 +11,7 @@
         <x-input field="name" label="Name" type="text" placeholder="{{$user->name}}" value="{{$user->name}}"/>
         <x-input field="username" label="Username" type="text" placeholder="{{session('auth.username')}}" value="{{$user->username}}"/>
         <x-input field="password" label="Password" type="password" placeholder="kosongkan jika tidak ingin merubah" />
-        <x-input field="role" label="Role" type="select" dataSelect='[{"view":"Admin","value":0},{"view":"Warehouse","value":1}]'/>
+        <x-input field="role" label="Role" type="select" dataSelect='[{"view":"Admin","value":0},{"view":"Warehouse","value":1}]' attr="disabled"/>
     </x-form>
 @endpush
 @push('js')
